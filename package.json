@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/jtavara23/reto3BackEnd/issues"
   },
-  "homepage": "https://github.com/jtavara23/reto3BackEnd#readme"
+  "homepage": "https://github.com/jtavara23/reto3BackEnd#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
