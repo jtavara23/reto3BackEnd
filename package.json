@@ -1,0 +1,20 @@
+{
+  "name": "reto3",
+  "version": "1.0.0",
+  "description": "reto_BACKEND",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtavara23/reto3BackEnd.git"
+  },
+  "author": "Josue Tavara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtavara23/reto3BackEnd/issues"
+  },
+  "homepage": "https://github.com/jtavara23/reto3BackEnd#readme"
+}
