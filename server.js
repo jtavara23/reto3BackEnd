@@ -6,12 +6,6 @@
 //npm install bcrypt--save
 'use strict'
 //VARIABLES
-/*
-var persona = {
-    nombres: "Josue Gaston",
-    apellidos: "Tavara Idrogo"
-}
-*/
 // REQUERIMIENTO DE MODULOS
 var express = require('express');
 var swig = require('swig');
