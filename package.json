@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/jtavara23/reto3BackEnd#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.3",
+    "swig": "^1.4.2"
   }
 }
