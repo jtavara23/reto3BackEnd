@@ -1,0 +1,24 @@
+<html>
+     {% for user in users %}
+    <head>
+        <title>	{{user.nombres}} y sus amigos</title>
+    </head>
+    <body>
+        <h1>{{user.nombres}} y sus amigos</h1>
+        
+        <h2>PERSONA</h2>
+        <p><b>Nombres: </b> {{user.nombres}}</p>
+        <p><b>Apellidos: </b>{{user.apellidos}}</p>
+
+        <h2>AMIGOS</h2>
+        
+        {% for friend in user.amigos %}
+        <article>	
+            <p><b>Nombres: </b> {{friend.nombres}}</p>
+            <p><b>Apellidos: </b>{{friend.apellidos}}</p>
+        </article>
+        <br>
+        {% endfor %}
+    </body>
+     {% endfor %}
+    </html>
