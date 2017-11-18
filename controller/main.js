@@ -7,7 +7,7 @@ var router = express.Router();
 //Requerimiento de modelo user
 var User = require('../models/user');
 //Requerimiento de modelo speciality
-var amigo = require('../models/amigo');
+var Amigo = require('../models/amigo');
 
 
 // Cuando exista una petición en el servidor  
