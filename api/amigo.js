@@ -106,8 +106,7 @@ router.route('/amigos/:datosAmigo')
                     console.log(err);
                 }
                 if (result) {
-                    //console.log("se encontro"+result);
-                    //actualizar(new_nombres, new_apellidos, result, res);
+                    console.log("se encontro"+result);
                     var old_names= result.nombres;
                     var old_lastNames = result.apellidos;
                     if (new_nombres) {
@@ -160,6 +159,57 @@ router.route('/amigos/:datosAmigo')
         )
 
     });
+
+
+
+//DELETE special friend
+//   http://localhost:8000/api/Nombre Apellido
+router.route('/amigos/:datosAmigo')
+    .delete(function (req, res) {
+        // Obtencion de parametros de url
+        var datos = req.params.datosAmigo;
+        var datosDetalle = datos.split(' ');
+        //console.log(datosDetalle);
+        // Busqueda de resgitro particular
+        Amigo.findOne({
+            nombres: { $regex: ".*" + datosDetalle[0] + ".*" },
+            apellidos: { $regex: ".*" + datosDetalle[1] + ".*" }}).then(
+            function (result) {
+                console.log("se encontro"+result);
+                var old_names = result.nombres;
+                var old_lastNames = result.apellidos;
+                User.findOne({ nombres: "Josue Gaston" })
+                    .then(function (detalles) {
+                        var amigoEliminar = detalles.amigos.find(function (person) {
+                            return (person.nombres == old_names, person.apellidos == old_lastNames);
+                        });
+                        console.log("eliminar a " + amigoEliminar);
+                        amigoEliminar.remove();
+                        detalles.save(function (err) {
+                            if (err) {
+                                console.log(err);
+                                res.json({ success: false, error: err });
+                            } else {
+                                result.remove(function (err) {
+                                    if (err) {
+                                        // Si hay un error al momento de guardar el registro 
+                                        //nos muestra success:false y cual fue el error 
+                                        console.log(err);
+                                        res.json({ success: false, error: err });
+                                    } else {
+                                        // Si el registro se completo sin errores 
+                                        // nos devuelve success:true y el registro creado
+                                        res.json({ success: true })
+                                    }
+                                }) 
+                            }  
+                        })
+                    })
+            })
+    });
+
+
+
 
 
 //EXPORTACION
